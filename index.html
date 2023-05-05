@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Enviar imagen a Telegram</title>
+  </head>
+  <body>
+    <h1>Enviar imagen a Telegram</h1>
+    <form id="formulario" method="post" enctype="multipart/form-data">
+      <input type="file" name="image">
+      <button type="submit">Enviar imagen</button>
+    </form>
+
+    <script>
+      const formulario = document.getElementById('formulario');
+
+      formulario.addEventListener('submit', (event) => {
+        event.preventDefault();
+
+        const imagen = event.target.elements.image.files[0];
+        const formData = new FormData();
+        formData.append('image', imagen);
+
+        fetch('enviar-a-telegram.php', {
+          method: 'POST',
+          body: formData
+        })
+        .then((response) => {
+          if (response.ok) {
+            alert('La imagen se ha enviado a Telegram');
+          } else {
+            alert('Error al enviar la imagen a Telegram');
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+      });
+    </script>
+  </body>
+</html>
