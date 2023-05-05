@@ -1,6 +1,6 @@
 <?php
-$token = 'TU_TOKEN_DE_TELEGRAM';
-$chat_id = '@TU_CANAL_DE_TELEGRAM';
+$token = '5876105317:AAHMD9CSwSCh08VmCaGuRBczWPKIE7dd-do';
+$chat_id = '@nuevainfoverga';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   if (isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
